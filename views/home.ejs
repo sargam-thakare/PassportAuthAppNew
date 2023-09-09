@@ -1,0 +1,53 @@
+
+<html>
+    <head>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">   
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    </head>
+    <body>
+        <div style="border:2px solid black; width:80%;margin:auto;margin-top:50px;padding:20px">
+            <h1>Passport Auth Application</h1>
+
+        <h3>welcome to home page</h3>
+       Welcome  <%= user.name%>
+       <br>
+       your email is  <%= user.email%>
+        <br>
+
+        <a href="/user/logout">logout</a>
+        <br>
+     
+        <a href="/user/resetpassword">reset password</a>
+
+ 
+        </div>
+
+        <script>
+            <% if (flash.success && flash.success.length > 0) {%>
+                new Noty({
+                    theme: 'relax',
+                    text: "<%= flash.success %>",
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 1500
+                    
+                }).show();    
+            <%} %>
+    
+            <% if (flash.error && flash.error.length > 0) {%>
+                new Noty({
+                    theme: 'relax',
+                    text: "<%= flash.error %>",
+                    type: 'error',
+                    layout: 'topRight',
+                    timeout: 1500
+                    
+                }).show();    
+            <%} %>
+        </script>
+        
+    </body>
+</html>
